@@ -1,5 +1,8 @@
 Programs Used
 
+Run Groundstation -> 
+python script.py
+
 Python 3.9.0
 
 click==8.1.7

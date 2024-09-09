@@ -139,3 +139,5 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "TextLabel"))
         self.label_10.setText(_translate("MainWindow", "TextLabel"))
         self.menuMain_Window.setTitle(_translate("MainWindow", "Test"))
+
+    
