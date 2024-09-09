@@ -76,7 +76,43 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Flag that indicates command is valid
         self.IsCommandValid = True
         
-
+        self.pushButton_RefreshCommandList.clicked.connect(self.refresh_command_list)
+        
+        self.command_name = []
+        self.command_list = []
+        self.refresh_command_list()
+        self.listWidget_CommandList.itemClicked.connect(self.load_from_selected_command)
+    
+    def load_from_selected_command(self, item):
+        self.textEdit_CommandHeader.clear()
+        self.textEdit_Payload.clear()
+        
+        index = self.listWidget_CommandList.indexFromItem(item).row()
+        cmd_len = len(self.command_list[index])
+        if cmd_len <= 16: # Only Command Header or less
+            self.textEdit_CommandHeader.setText(self.command_list[index][:cmd_len])
+        else: # Bigger than Command Header
+            self.textEdit_CommandHeader.setText(self.command_list[index][:16])
+            self.textEdit_Payload.setText(self.command_list[index][16:])
+        
+        self.modify_commandHeader_text()
+        self.modify_Payload_text()
+        
+        self.statusBar().showMessage(f"Loaded Command : {self.command_name[index]}")
+        
+    def refresh_command_list(self):
+        # Read the command list from a file
+        try:
+            with open("./commands/command_list.txt", "r") as file:
+                command_list = file.readlines()
+                for line in command_list:
+                    self.command_name.append(line.split(":")[0])
+                    self.command_list.append(line.split(":")[1].replace(" ", ""))
+                self.listWidget_CommandList.clear()
+                self.listWidget_CommandList.addItems(self.command_name)
+        except Exception as e:
+            print("Error reading command list:", e)
+    
     def refresh_ports(self):
         ## Get lists of serial port
         ports = serial.tools.list_ports.comports()
