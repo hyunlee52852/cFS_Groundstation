@@ -1,5 +1,5 @@
 import sys
-from DS_Parser import Ui_Form
+from DsParserWindow import Ui_Form
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtGui import QFont, QResizeEvent, QFontMetrics
 from PyQt6.QtCore import Qt
