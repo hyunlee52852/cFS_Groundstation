@@ -105,6 +105,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         try:
             with open("./commands/command_list.txt", "r") as file:
                 command_list = file.readlines()
+                self.command_list.clear()
+                self.command_name.clear()
                 for line in command_list:
                     self.command_name.append(line.split(":")[0])
                     self.command_list.append(line.split(":")[1].replace(" ", ""))
