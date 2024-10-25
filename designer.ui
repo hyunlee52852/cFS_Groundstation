@@ -18,7 +18,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_Main" stretch="10,0,10,0,10,0,200">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_PortConnectSend" stretch="0,20,0,0,0,5,20,5">
+       <layout class="QHBoxLayout" name="horizontalLayout_PortConnectSend" stretch="0,20,0,0,0,5,20,5,5">
         <property name="spacing">
          <number>-1</number>
         </property>
@@ -86,6 +86,13 @@
          <widget class="QPushButton" name="pushButton_SendCommand">
           <property name="text">
            <string>Send!</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_SendCSP">
+          <property name="text">
+           <string>Send_CSP</string>
           </property>
          </widget>
         </item>

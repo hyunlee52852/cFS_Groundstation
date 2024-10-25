@@ -56,7 +56,6 @@ class DsParser(QtWidgets.QWidget, Ui_Form):
                     for column, item in enumerate(row_data):
                         cell = QtWidgets.QTableWidgetItem(item)
                         self.tableWidget.setItem(row, column, cell)
-        
 
 window = DsParser()
 window.show()
