@@ -18,6 +18,8 @@ qt6-tools==6.4.3.1.3
 
 ---
 
+USE OF VIRTUAL ENVIRONMENT RECOMMENDED.
+
 pip install PyQt6
 pip install pyqt6-tools
 pip install pyserial
